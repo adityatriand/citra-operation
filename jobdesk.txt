@@ -1,39 +1,43 @@
 MEET
 
 08-11-2021
-- membahas pilih gambar 10 buah
+- membahas pilih gambar 10 buah ( done )
 - membahas pembagian tugas
-	- Thresholding
-	- Grayscale
-	- Image Brightening
-	- Aritmatika
-		- Tambah : semacam menggabungkan 2 gambar
-		- Kurang : semacam mencari kesamaan
-		- Kali : semacam memberi masking
-	- Boolean
-		- And
+	- Thresholding (1)
+	- Grayscale(2)
+	- Image Brightening (3)
+	- Aritmatika 
+		- Tambah : (4)
+		- Kurang : 
+		- Kali : (5)
+		- Pembagian :
+	- Boolean 
+		- And (6)
 		- Or
-		- Not
+		- Not(7)
 		- XOR
 	- Geometri
-		- Tranlasi
-		- Rotasi
+		- Tranlasi(8)
+		- Rotasi(9)
 			- Searah jarum jam
 			- berlawanan jarum jam
-		- Flip
+		- Flip (10)
 			- Flip Horizontal
 			- Flip Vertikal
-		- Zoom
+		- Zoom (11)
 			- Zoom In ( mengecil )
 			- Zoom Out ( membesar )
-- membahas buat laporan
+- membahas buat laporan (12)
 	- Cover beserta nama
 	- hasil tiap operasi lampirkan gambarnya
 
 JOBDESK
 
 Adit
+1,2,3,10
 
 Angga
+5,6,7,9
 
 Erish
+4,8,10,11
