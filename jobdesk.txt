@@ -34,7 +34,7 @@ MEET
 JOBDESK
 
 Adit
-1,2,3,10
+1,2,3,12
 
 Angga
 5,6,7,9
