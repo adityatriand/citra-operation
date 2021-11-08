@@ -41,3 +41,5 @@ Angga
 
 Erish
 4,8,10,11
+
+bye
