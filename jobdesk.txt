@@ -43,3 +43,5 @@ Erish
 4,8,10,11
 
 bye
+
+mandi angga la sore
