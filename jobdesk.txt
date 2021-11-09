@@ -27,14 +27,22 @@ MEET
 		- Zoom (11)
 			- Zoom In ( mengecil )
 			- Zoom Out ( membesar )
-- membahas buat laporan (12)
+	-Edge Detection (12)
+		- Sobel
+		- Canny
+		- Gaussian
+- membahas buat laporan (13)
 	- Cover beserta nama
 	- hasil tiap operasi lampirkan gambarnya
 
 JOBDESK
 
 Adit
-1,2,3,12
+1,2,3,12,13
+
+1,2,3 : Done
+
+12,13 : Notyet
 
 Angga
 5,6,7,9
