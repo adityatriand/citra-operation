@@ -15,7 +15,7 @@ import javax.imageio.ImageIO;
  * @author Adit,Diaz,Angga
  */
 public class Geometri {
-    public static void citraTranslasi(String nama_file, String tipe_file, int x) {
+    public static void citraTranslasi (String nama_file, String tipe_file, int x) {
         try {
             String input_name = nama_file + "." + tipe_file;
             File input = new File(input_name);
@@ -101,7 +101,7 @@ public class Geometri {
         }
     }
 
-    public static void citraHorizontalFlip(String nama_file, String tipe_file) {
+    public static void citraHorizontalFlip (String nama_file, String tipe_file) {
         try {
             String input_name = nama_file + "." + tipe_file;
             File input = new File(input_name);
@@ -127,7 +127,7 @@ public class Geometri {
         }
     }
 
-    public static void citraVerticalFlip(String nama_file, String tipe_file) {
+    public static void citraVerticalFlip (String nama_file, String tipe_file) {
         try {
             String input_name = nama_file + "." + tipe_file;
             File input = new File(input_name);
@@ -146,6 +146,85 @@ public class Geometri {
             }
 
             String output_name = nama_file + "_VerticalFlip." + tipe_file;
+            File output = new File(output_name);
+            ImageIO.write(image2, tipe_file, output);
+        } catch (IOException e) {
+            System.out.println("Error = " + e);
+        }
+    }
+
+    public static void citraZoomIn (String nama_file, String tipe_file, int x) {
+        try {
+            String input_name = nama_file + "." + tipe_file;
+            File input = new File(input_name);
+            BufferedImage image = ImageIO.read(input);
+            int width = image.getWidth();
+            int height = image.getHeight();
+
+            BufferedImage image2 = new BufferedImage(width * x, height * x, BufferedImage.TYPE_INT_RGB);
+            int m = 0, n = 0;
+            for(int i = 0; i < height; i++){
+                for(int j = 0; j < width; j++){
+                    int p = image.getRGB(j, i);
+                    for(int k = 0; k < x; k++){
+                        image2.setRGB(n, m + k, p);
+                    }
+                    for(int l = 0; l < x; l++){
+                        image2.setRGB(n + l, m, p);
+                    }
+                    n= n + x;
+                }
+                m= m + x;
+                n = 0;
+            }
+
+            String output_name = nama_file + "_ZoomedIn." + tipe_file;
+            File output = new File(output_name);
+            ImageIO.write(image2, tipe_file, output);
+        } catch (IOException e) {
+            System.out.println("Error = " + e);
+        }
+    }
+
+    public static void citraZoomOut (String nama_file, String tipe_file, int x) {
+        try {
+            String input_name = nama_file + "." + tipe_file;
+            File input = new File(input_name);
+            BufferedImage image = ImageIO.read(input);
+            int width = image.getWidth();
+            int height = image.getHeight();
+
+            BufferedImage image2 = new BufferedImage(width/x, height/x, BufferedImage.TYPE_INT_RGB);
+            int width2 = image2.getWidth();
+            int height2 = image2.getHeight();
+            int m =0, n=0;
+            for(int i = 0; i < height2; i++){
+                for(int j = 0; j < width2; j++){
+                    int red = 0, green = 0, blue = 0;
+                    Color c;
+                    for(int k = 0; k < x; k++){
+                        c = new Color(image.getRGB(n, m + k));
+                        red += (int)(c.getRed());
+                        green += (int)(c.getGreen());
+                        blue += (int)(c.getBlue());
+                    }
+                    for(int l = 0; l < x; l++){
+                        c = new Color(image.getRGB(n + l, m));
+                        red += (int)(c.getRed());
+                        green += (int)(c.getGreen());
+                        blue += (int)(c.getBlue());
+                    }
+                    red /= (int)Math.pow(x, 2);
+                    green /= (int)Math.pow(x, 2);
+                    blue /= (int)Math.pow(x, 2);
+                    n += x;
+                    image2.setRGB(j, i, new Color(red, green, blue).getRGB());
+                }
+                m += x;
+                n = 0;
+            }
+
+            String output_name = nama_file + "_ZoomedOut." + tipe_file;
             File output = new File(output_name);
             ImageIO.write(image2, tipe_file, output);
         } catch (IOException e) {

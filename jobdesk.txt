@@ -53,6 +53,5 @@ Angga
 Erish
 4, 8, 10, 11
 
-8, 10 : Done
-
-4, 11 : Blom
+4, 8, 10, 11 : Done, ada yg belum dites.
+Mau coba penambahan yg buat pengurangan noises tapi dak kebayang algoritmanya '-')v
