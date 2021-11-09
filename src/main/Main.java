@@ -4,17 +4,13 @@
  */
 package main;
 import operationcitra.*;
+import edgedetection.*;
 /**
  *
  * @author Adit,Diaz,Angga
  */
 public class Main {
     public static void main(String[] args) {
-        String nama_gambar = "gambar";
-        for(int i=1;i<=10;i++){
-            nama_gambar += i;           
-            Thresholding.Operation(nama_gambar, "jpg",120);
-            nama_gambar = "gambar";
-        }
+        
     }
 }

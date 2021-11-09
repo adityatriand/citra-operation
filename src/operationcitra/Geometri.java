@@ -31,7 +31,7 @@ public class Geometri {
                 int l = 0;
                 for (int j = 0; j < width2; j++) {
                     if (i < x || j < x) {
-                        Color c = new Color(0, 0, 0);
+                        Color c = new Color(255, 255, 255);
                         image2.setRGB(j, i, c.getRGB());
                     } else {
                         Color c = new Color(image.getRGB(l, k));
@@ -51,19 +51,24 @@ public class Geometri {
         }
     }
 
-    public static void citraRotasi90CW(String nama_file, String nama_file2, String tipe_file) {
+    public static void citraRotasi90CW(String nama_file, String tipe_file) {
         try {
             String input_name = nama_file + "." + tipe_file;
             File input = new File(input_name);
             BufferedImage image = ImageIO.read(input);
+            BufferedImage image2;
             int width = image.getWidth();
             int height = image.getHeight();
-
-            BufferedImage image2 = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-            int k = width - 1;
-            for (int i = 0; i < height; i++) {
-                for (int j = 0; j < width; j++) {
-                    int p = image.getRGB(j, i);
+            int a=height,b=width;
+            if(width>height){
+                image2 = new BufferedImage(height, width, BufferedImage.TYPE_INT_RGB);
+            }else{
+                image2 = new BufferedImage(width,height, BufferedImage.TYPE_INT_RGB);
+            }
+            int k = height -1;
+            for(int i=0; i<height;i++){
+                for(int j=0; j<width;j++){
+                    int p = image.getRGB(j,i);
                     image2.setRGB(k, j, p);
                 }
                 k--;
@@ -81,14 +86,18 @@ public class Geometri {
             String input_name = nama_file + "." + tipe_file;
             File input = new File(input_name);
             BufferedImage image = ImageIO.read(input);
+            BufferedImage image2;
             int width = image.getWidth();
             int height = image.getHeight();
-
-            BufferedImage image2 = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-            for (int i = 0; i < height; i++) {
-                int k = width - 1;
-                for (int j = 0; j < width; j++) {
-                    int p = image.getRGB(j, i);
+            if(width>height){
+                image2 = new BufferedImage(height, width, BufferedImage.TYPE_INT_RGB);
+            }else{
+                image2 = new BufferedImage(width,height, BufferedImage.TYPE_INT_RGB);
+            }                
+            for(int i=0; i<height;i++){
+                int k = width -1;
+                for(int j=0; j<width;j++){
+                    int p = image.getRGB(j,i);
                     image2.setRGB(i, k, p);
                     k--;
                 }
@@ -110,11 +119,11 @@ public class Geometri {
             int height = image.getHeight();
 
             BufferedImage image2 = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-            for (int i = 0; i < height; i++) {
-                for (int j = 0; j < width; j++) {
-                    int k = width - 1;
-                    int p = image.getRGB(j, i);
-                    image2.setRGB(k, i, p);
+            for(int i=0; i<height;i++){
+                int k = width-1;
+                for(int j=0;j<width;j++){ 
+                    int p = image.getRGB(j,i);
+                    image2.setRGB(k,i,p);
                     k--;
                 }
             }
@@ -136,7 +145,7 @@ public class Geometri {
             int height = image.getHeight();
 
             BufferedImage image2 = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-            int k = width - 1;
+            int k = height - 1;
             for (int i = 0; i < height; i++) {
                 for (int j = 0; j < width; j++) {
                     int p = image.getRGB(j, k);
