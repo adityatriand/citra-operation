@@ -232,7 +232,7 @@ public class Aritmatika {
                         int blue2 = (int) (c2.getBlue());
 
                         tempRed = tempRed + (red * red2);
-                        if (tempRed < 255)
+                        if (tempRed < 0)
                             tempRed = 0;
                         else if (tempRed > 255)
                             tempRed = 255;
@@ -281,7 +281,7 @@ public class Aritmatika {
                     int blue = (int) (c.getBlue());
 
                     int tempRed = red * k;
-                    if (tempRed < 255)
+                    if (tempRed < 0)
                         tempRed = 0;
                     else if (tempRed > 255)
                         tempRed = 255;
@@ -330,7 +330,7 @@ public class Aritmatika {
                     int blue = (int) (c.getBlue());
 
                     int tempRed = red / k;
-                    if (tempRed < 255)
+                    if (tempRed < 0)
                         tempRed = 0;
                     else if (tempRed > 255)
                         tempRed = 255;
