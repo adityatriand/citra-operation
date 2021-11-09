@@ -214,50 +214,54 @@ public class Aritmatika {
             int height1 = image1.getHeight();
             int width2 = image2.getWidth();
             int height2 = image2.getHeight();
+            if (width1 == height2) {
+                BufferedImage image3 = new BufferedImage(width2, height1, BufferedImage.TYPE_INT_RGB);
+                for (int i = 0; i < height1; i++) {
+                    for (int j = 0; j < width2; j++) {
+                        int tempRed = 0;
+                        int tempGreen = 0;
+                        int tempBlue = 0;
+                        for (int k = 0; k < height2; k++) {
+                            Color c = new Color(image1.getRGB(k, i));
+                            int red = (int) (c.getRed());
+                            int green = (int) (c.getGreen());
+                            int blue = (int) (c.getBlue());
+                            Color c2 = new Color(image2.getRGB(j, k));
+                            int red2 = (int) (c2.getRed());
+                            int green2 = (int) (c2.getGreen());
+                            int blue2 = (int) (c2.getBlue());
 
-            BufferedImage image3 = new BufferedImage(width2, height1, BufferedImage.TYPE_INT_RGB);
-            for (int i = 0; i < height1; i++) {
-                for (int j = 0; j < width2; j++) {
-                    int tempRed = 0;
-                    int tempGreen = 0;
-                    int tempBlue = 0;
-                    for (int k = 0; k < height2; k++) {
-                        Color c = new Color(image1.getRGB(k, i));
-                        int red = (int) (c.getRed());
-                        int green = (int) (c.getGreen());
-                        int blue = (int) (c.getBlue());
-                        Color c2 = new Color(image2.getRGB(j, k));
-                        int red2 = (int) (c2.getRed());
-                        int green2 = (int) (c2.getGreen());
-                        int blue2 = (int) (c2.getBlue());
+                            tempRed = tempRed + (red * red2);
+                            if (tempRed < 0)
+                                tempRed = 0;
+                            else if (tempRed > 255)
+                                tempRed = 255;
 
-                        tempRed = tempRed + (red * red2);
-                        if (tempRed < 0)
-                            tempRed = 0;
-                        else if (tempRed > 255)
-                            tempRed = 255;
+                            tempGreen = tempGreen + (green * green2);
+                            if (tempGreen < 0)
+                                tempGreen = 0;
+                            else if (tempGreen > 255)
+                                tempGreen = 255;
 
-                        tempGreen = tempGreen + (green * green2);
-                        if (tempGreen < 0)
-                            tempGreen = 0;
-                        else if (tempGreen > 255)
-                            tempGreen = 255;
+                            tempBlue = tempBlue + (blue * blue2);
+                            if (tempBlue < 0)
+                                tempBlue = 0;
+                            else if (tempBlue > 255)
+                                tempBlue = 255;
+                        }
 
-                        tempBlue = tempBlue + (blue * blue2);
-                        if (tempBlue < 0)
-                            tempBlue = 0;
-                        else if (tempBlue > 255)
-                            tempBlue = 255;
+                        image3.setRGB(j, i, new Color(tempRed, tempGreen, tempBlue).getRGB());
                     }
-
-                    image3.setRGB(j, i, new Color(tempRed, tempGreen, tempBlue).getRGB());
+                    String output_name = nama_file1 + "_Kali_" + nama_file2 + "." + tipe_file;
+                    File output = new File(output_name);
+                    ImageIO.write(image3, tipe_file, output);
                 }
+            } else {
+                System.out.println("Maaf tidak bisa diproses karena ukuran gambar berbeda");
             }
-            String output_name = nama_file1 + "_Kali_" + nama_file2 + "." + tipe_file;
-            File output = new File(output_name);
-            ImageIO.write(image3, tipe_file, output);
+        } catch (
 
-        } catch (IOException e) {
+        IOException e) {
             System.out.println("Error = " + e);
         }
     }
