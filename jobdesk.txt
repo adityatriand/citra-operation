@@ -46,9 +46,8 @@ Adit
 
 Angga
 5,6,7,9
-6,7,9 : Done
 
-5 : belom
+5,6,7,9 : Done
 
 Erish
 4, 8, 10, 11
